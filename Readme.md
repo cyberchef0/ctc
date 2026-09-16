@@ -53,6 +53,8 @@ deliberately, report thoroughly.*
 \newpage
 
 # 2. Architecture
+
+```text
 autorelay/
 ├── autorelay.py              # CLI entry, orchestrator
 ├── config.yaml               # defaults, timeouts, paths
@@ -68,7 +70,7 @@ autorelay/
 │   ├── petitpotam.py
 │   ├── dfscoerce.py
 │   ├── printerbug.py
-│   └── responder.py          # passive LLMNR/NBT-NS/mDNS
+│   └── responder.py           # passive LLMNR/NBT-NS/mDNS
 ├── relay/
 │   ├── server.py             # wraps ntlmrelayx, event queue
 │   └── session.py            # session detection + metadata
@@ -87,11 +89,9 @@ autorelay/
     ├── test_preflight.py
     ├── test_coercion_parsers.py
     └── fixtures/             # captured nmap/ntlmrelayx output
+```
 
-
-**Dependency choice:** use Impacket as a library wherever practical. Shell
-out only to `ntlmrelayx.py` (its CLI is well-tested and its internals shift
-between releases). Never reimplement NTLM.
+**Dependency choice:** use Impacket as a library wherever practical. Shell out only to `ntlmrelayx.py` (its CLI is well-tested and its internals shift between releases). Never reimplement NTLM.
 
 \newpage
 
